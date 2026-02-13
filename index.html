@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Love Gallery</title>
+    <title>Love Slider</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #ffccd5;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-            padding: 20px;
-            color: #b30059;
+            overflow: hidden;
+            background: black;
         }
 
         #slides {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
+            width: 100%;
+            height: 100vh;
+            transition: transform 1s ease-in-out;
         }
 
         #slides img {
-            width: 200px;
-            height: 250px;
+            width: 100%;
+            height: 100vh;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 
 <body>
 
-    <h1>My Love Gallery ❤️</h1>
+<div id="slides"></div>
 
-    <div id="slides"></div>
+<script>
+const images = [
+"1.jpg","2.jpg","3.jpg","4.jpg",
+"5.jpg","6.jpg","7.jpg","8.jpg",
+"9.jpg","10.jpg","11.jpg","12.jpg",
+"13.jpg","14.jpg"
+];
 
-    <script>
-        const images = [
-            "1.jpg","2.jpg","3.jpg","4.jpg",
-            "5.jpg","6.jpg","7.jpg","8.jpg",
-            "9.jpg","10.jpg","11.jpg","12.jpg",
-            "13.jpg","14.jpg"
-        ];
+const slidesContainer = document.getElementById("slides");
 
-        const slidesContainer = document.getElementById("slides");
+images.forEach((img) => {
+    const image = document.createElement("img");
+    image.src = img;
+    slidesContainer.appendChild(image);
+});
 
-        images.forEach(function(img) {
-            const image = document.createElement("img");
-            image.src = img;
-            slidesContainer.appendChild(image);
-        });
-    </script>
+let index = 0;
+
+setInterval(() => {
+    index++;
+    if(index >= images.length) {
+        index = 0;
+    }
+    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+}, 2000);
+</script>
 
 </body>
 </html>
