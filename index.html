@@ -137,30 +137,28 @@ p{
 <script>
 
 const images = [
-<img src="1.jpg">
-<img src="2.jpg">
-<img src="3.jpg">
-<img src="4.jpg">
-<img src="5.jpg">
-<img src="6.jpg">
-<img src="7.jpg">
-<img src="8.jpg">
-<img src="9.jpg">
-<img src="10.jpg">
-<img src="11.jpg">
-<img src="12.jpg">
-<img src="13.jpg">
-<img src="14.jpg">
+  "1.jpg",
+  "2.jpg",
+  "3.jpg",
+  "4.jpg",
+  "5.jpg",
+  "6.jpg",
+  "7.jpg",
+  "8.jpg",
+  "9.jpg",
+  "10.jpg",
+  "11.jpg",
+  "12.jpg",
+  "13.jpg",
+  "14.jpg"
 ];
 
 const slidesContainer = document.getElementById("slides");
 
-images.forEach((img,index)=>{
-    const div = document.createElement("div");
-    div.classList.add("slide");
-    div.style.backgroundImage = `url('${img}')`;
-    if(index === 0) div.classList.add("active");
-    slidesContainer.appendChild(div);
+images.forEach((img) => {
+  const image = document.createElement("img");
+  image.src = img;
+  slidesContainer.appendChild(image);
 });
 
 let current = 0;
@@ -214,4 +212,5 @@ document.body.addEventListener("click", function(){
 
 </body>
 </html>
+
 
