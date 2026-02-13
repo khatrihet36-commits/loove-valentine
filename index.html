@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Love Gallery</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
+            background: #ffccd5;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
         }
 
         h1 {
             text-align: center;
-            color: white;
-            margin-top: 20px;
+            padding: 20px;
+            color: #b30059;
         }
 
         #slides {
@@ -30,13 +29,8 @@
             width: 200px;
             height: 250px;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        #slides img:hover {
-            transform: scale(1.08);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -57,7 +51,7 @@
 
         const slidesContainer = document.getElementById("slides");
 
-        images.forEach((img) => {
+        images.forEach(function(img) {
             const image = document.createElement("img");
             image.src = img;
             slidesContainer.appendChild(image);
